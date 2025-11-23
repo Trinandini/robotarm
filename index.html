@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Robot Arm Demo</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #fff;
+            width: 850px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        h1 { text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; margin-bottom: 20px; color: #666; }
+
+        .status {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .start-btn { background: #5e60ce; color: #fff; }
+        .mode-btn { background: #4ea8de; color: #fff; }
+        .reset-btn { background: #adb5bd; }
+
+        canvas {
+            background: #fff;
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 15px;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>🤖 Robot Arm Simulation</h1>
+    <p class="subtitle">Click to place the robot and object — then start the motion!</p>
+
+    <div class="status" id="status">Click on the canvas to place the robot base</div>
+
+    <div class="controls">
+        <button class="mode-btn" onclick="setMode('robot')" id="robotMode">Place Robot</button>
+        <button class="mode-btn" onclick="setMode('object')" id="objectMode">Place Object</button>
+        <button class="start-btn" onclick="startDemo()" id="startBtn" disabled>Start</button>
+        <button class="reset-btn" onclick="resetDemo()">Reset</button>
+    </div>
+
+    <canvas id="canvas" width="600" height="400"></canvas>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
